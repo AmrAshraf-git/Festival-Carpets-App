@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@color/main_background"
+    android:orientation="vertical"
+    tools:context=".ui.main.fragment.navigation.HomeFragment">
+
+
+
+    <ProgressBar
+        android:id="@+id/homePageF_prgrsBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/homePageF_txtView_searchResult"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="There is no result to show\n try to type a specific model"
+        android:visibility="gone"/>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/homePageF_swipeRf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homePageF_recyclerView_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animationCache="false"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbars="vertical"
+            android:scrollingCache="false"
+            android:smoothScrollbar="true" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <!--
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="16dp"
+    android:descendantFocusability="afterDescendants"
+    android:focusableInTouchMode="true"
+    android:scrollingCache="false"
+    android:animationCache="false"
+    tools:listitem="@layout/listview_row"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
