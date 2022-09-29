@@ -159,7 +159,7 @@ public class HistoryFragment extends Fragment implements HomeListAdapter.OnRecyc
                 mBookingHistoryResponse = bookingHistoryResponse;
                 getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
                 progressBar.setVisibility(View.GONE);
-                vehicleViewModel.getVehicleResponse().removeObservers(getViewLifecycleOwner());
+                vehicleViewModel.getAllVehicleResponse().removeObservers(getViewLifecycleOwner());
                 //Log.e("resume6","end of onChanged");
             }
         });

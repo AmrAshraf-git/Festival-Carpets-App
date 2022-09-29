@@ -82,13 +82,14 @@ public class SignUpFragment extends Fragment {
                             TextValidation.isConfPasswordSimulate(password,confPassword)) {
 
 
-                        getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
-                        vehicleViewModel.getNewUserResponse().removeObservers(getViewLifecycleOwner());
                         vehicleViewModel.signUpRequest(createNewUser());
+                        getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
+                        vehicleViewModel.getSignUpResponse().removeObservers(getViewLifecycleOwner());
+                        //vehicleViewModel.signUpRequest(createNewUser());
                         progressBar.setVisibility(View.VISIBLE);
                         signUp.setEnabled(false);
 
-                        vehicleViewModel.getNewUserResponse().observe(getViewLifecycleOwner(), new Observer<SignUpResponse>() {
+                        vehicleViewModel.getSignUpResponse().observe(getViewLifecycleOwner(), new Observer<SignUpResponse>() {
                             @Override
                             public void onChanged(SignUpResponse signUpResponse) {
                                 //Log.e("resume2", "onChanged");

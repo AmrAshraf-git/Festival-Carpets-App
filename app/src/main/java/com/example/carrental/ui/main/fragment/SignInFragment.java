@@ -82,7 +82,7 @@ public class SignInFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         if (savedInstanceState==null && !mAlreadyLoaded) {
@@ -104,15 +104,17 @@ public class SignInFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     if (TextValidation.isEmailValid(email)) {
-                        vehicleViewModel.getUserResponse().removeObservers(getViewLifecycleOwner());
+
+                        vehicleViewModel.signInRequest(getUser());
                         getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
+                        vehicleViewModel.getSignInResponse().removeObservers(getViewLifecycleOwner());
 
                         progressBar.setVisibility(View.VISIBLE);
                         signIn.setEnabled(false);
                         //User mUser=getUser();
-                        vehicleViewModel.loginRequest(getUser());
+                        //vehicleViewModel.signInRequest(getUser());
                         Log.e("resume1","onClick");
-                        vehicleViewModel.getUserResponse().observe(getViewLifecycleOwner(), new Observer<SignInResponse>() {
+                        vehicleViewModel.getSignInResponse().observe(getViewLifecycleOwner(), new Observer<SignInResponse>() {
                             @Override
                             public void onChanged(SignInResponse signInResponse) {
                                 Log.e("resume2","onChanged");
@@ -150,7 +152,6 @@ public class SignInFragment extends Fragment {
                                 mSignInResponse=signInResponse;
                                 //Log.e("resume8","end of onChanged");
                             }
-
                         });
 
                         /**
@@ -201,12 +202,13 @@ public class SignInFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     if (TextValidation.isEmailValid(email)) {
+                        vehicleViewModel.forgetPasswordRequest(email.getText().toString());
                         vehicleViewModel.getForgetPasswordResponse().removeObservers(getViewLifecycleOwner());
                         getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
                         progressBar.setVisibility(View.VISIBLE);
                         signIn.setEnabled(false);
 
-                        vehicleViewModel.forgetPasswordRequest(email.getText().toString());
+                        //vehicleViewModel.forgetPasswordRequest(email.getText().toString());
                         vehicleViewModel.getForgetPasswordResponse().observe(getViewLifecycleOwner(), new Observer<ForgetPasswordResponse>() {
                             @Override
                             public void onChanged(ForgetPasswordResponse forgetPasswordResponse) {
@@ -256,7 +258,7 @@ public class SignInFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        vehicleViewModel.getUserResponse().removeObservers(this);
+        vehicleViewModel.getSignInResponse().removeObservers(this);
         getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
     }
 

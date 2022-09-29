@@ -37,10 +37,7 @@ import java.util.List;
 public class HomeFragment extends Fragment implements HomeListAdapter.OnRecyclerViewClickListener {
 
     private static final String CATEGORY_NAME = "categoryName";
-    //private static final String ARG_PARAM2 = "param2";
     private String mCategoryName;
-    //private String mParam2;
-
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private VehicleViewModel vehicleViewModel;
@@ -92,14 +89,14 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
                              Bundle savedInstanceState) {
         if (!mAlreadyLoaded) {
             mAlreadyLoaded = true;
-            //setHasOptionsMenu(true);
-            //Log.e("test","view");
+
             view = inflater.inflate(R.layout.fragment_home, container, false);
+
             recyclerView = view.findViewById(R.id.homePageF_recyclerView_main);
             searchResult = view.findViewById(R.id.homePageF_txtView_searchResult);
-
             swipeRefreshLayout = view.findViewById(R.id.homePageF_swipeRf);
             progressBar = view.findViewById(R.id.homePageF_prgrsBar);
+
             searchResult.setVisibility(View.GONE);
             progressBar.setVisibility(View.VISIBLE);
 
@@ -122,6 +119,76 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
         return view;
     }
 
+
+    private void getByCategory() {
+        switch (mCategoryName) {
+            case "car":
+                vehicleViewModel.searchedVehicleRequest("car");
+                observeSearchViewModel();
+                break;
+            case "bus":
+                vehicleViewModel.searchedVehicleRequest("bus");
+                observeSearchViewModel();
+                break;
+            case "motorcycle":
+                vehicleViewModel.searchedVehicleRequest("motorcycle");
+                observeSearchViewModel();
+                break;
+            default:
+                vehicleViewModel.allVehicleRequest();
+                observeViewModel();
+                break;
+        }
+        previousQuery = null;
+    }
+
+
+    private void observeViewModel() {
+        getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
+        vehicleViewModel.getAllVehicleResponse().removeObservers(getViewLifecycleOwner());
+        vehicleViewModel.getAllVehicleResponse().observe(getViewLifecycleOwner(), new Observer<VehicleResponse>() {
+            @Override
+            public void onChanged(VehicleResponse vehicleResponse) {
+                //Log.e("resume1","onChanged");
+                //Log.e("response",String.valueOf(vehicleResponse));
+                //Log.e("mResponse",String.valueOf(mVehicleResponse));
+                if (getViewLifecycleOwner().getLifecycle().getCurrentState() == Lifecycle.State.RESUMED && vehicleResponse != mVehicleResponse) {
+                    //Log.e("resume2","Lifecycle_RESUMED(if1)");
+                    if (vehicleResponse.getMessage() != null && vehicleResponse.getMessage().equals("success")) {
+                        //Log.e("resume3","if2");
+                        if (vehicleResponse.getData() != null) {
+                            homeListAdapter.updateStatus(vehicleResponse.getData());
+                            if (vehicleResponse.getData().isEmpty()) {
+                                searchResult.setText("There is no data to show!\n");
+                                searchResult.setVisibility(View.VISIBLE);
+                            } else
+                                searchResult.setVisibility(View.GONE);
+
+                            //Log.e("resume4","if3");
+                            //homeItemList.addAll(vehicleResponse.getData());
+                            //homeListAdapter.notifyDataSetChanged();
+                            //handler.post(new Runnable() {
+                            // @Override
+                            //public void run() {
+                            //}
+                            //});
+                        } else
+                            Toast.makeText(getContext(), (vehicleResponse.getMessage() != null ? vehicleResponse.getMessage() : "Invalid response, please try again"), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), (vehicleResponse.getMessage() != null ? vehicleResponse.getMessage() : "Unknown response, please try again"), Toast.LENGTH_SHORT).show();
+                        //Log.e("resume5","else1");
+                    }
+                }
+                mVehicleResponse = vehicleResponse;
+                getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
+                vehicleViewModel.getAllVehicleResponse().removeObservers(getViewLifecycleOwner());
+                progressBar.setVisibility(View.GONE);
+                //Log.e("resume6","end of onChanged");
+            }
+        });
+    }
+
+
     private void observeSearchViewModel() {
         vehicleViewModel.getSearchedVehicleResponse().removeObservers(getViewLifecycleOwner());
         getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
@@ -134,13 +201,18 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
                     if (vehicleResponse.getMessage() != null) {
                         //Log.e("resume3","(Search)if2");
                         if (vehicleResponse.getData() != null) {
+                            homeListAdapter.updateStatus(vehicleResponse.getData());
                             if (vehicleResponse.getData().isEmpty()) {
-                                homeListAdapter.updateStatus(vehicleResponse.getData());
-                                searchResult.setVisibility(View.VISIBLE);
+                                if (previousQuery != null) {
+                                    searchResult.setText("There is no result to show!\n try to type a specific model");
+                                    searchResult.setVisibility(View.VISIBLE);
+                                } else {
+                                    searchResult.setText("There is no data to show!\n");
+                                    searchResult.setVisibility(View.VISIBLE);
+                                }
                             } else {
                                 searchResult.setVisibility(View.GONE);
                                 //Log.e("resume4","(Search)if3");
-                                homeListAdapter.updateStatus(vehicleResponse.getData());
                                 //homeItemList.addAll(vehicleResponse.getData());
                                 //homeListAdapter.notifyDataSetChanged();
                                 //handler.post(new Runnable() {
@@ -151,7 +223,7 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
                             }
 
                         } else
-                            Toast.makeText(getContext(), (vehicleResponse.getMessage() != null ? vehicleResponse.getMessage() : "No responding data"), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), (vehicleResponse.getMessage() != null ? vehicleResponse.getMessage() : "Invalid response, please try again"), Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), (vehicleResponse.getMessage() != null ? vehicleResponse.getMessage() : "Unknown response, please try again"), Toast.LENGTH_SHORT).show();
                         //Log.e("resume5","(Search)else1");
@@ -167,6 +239,10 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
             }
         });
     }
+
+
+
+
 
     /*private void observeSearchByCategoryViewModel() {
         vehicleViewModel.getSearchedVehicle().removeObservers(getViewLifecycleOwner());
@@ -214,44 +290,6 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
         });
     }*/
 
-    private void observeViewModel() {
-        getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
-        vehicleViewModel.getVehicleResponse().removeObservers(getViewLifecycleOwner());
-        vehicleViewModel.getVehicleResponse().observe(getViewLifecycleOwner(), new Observer<VehicleResponse>() {
-            @Override
-            public void onChanged(VehicleResponse vehicleResponse) {
-                //Log.e("resume1","onChanged");
-                //Log.e("response",String.valueOf(vehicleResponse));
-                //Log.e("mResponse",String.valueOf(mVehicleResponse));
-                if (getViewLifecycleOwner().getLifecycle().getCurrentState() == Lifecycle.State.RESUMED && vehicleResponse != mVehicleResponse) {
-                    //Log.e("resume2","Lifecycle_RESUMED(if1)");
-                    if (vehicleResponse.getMessage() != null && vehicleResponse.getMessage().equals("success")) {
-                        //Log.e("resume3","if2");
-                        if (vehicleResponse.getData() != null) {
-                                homeListAdapter.updateStatus(vehicleResponse.getData());
-                            //Log.e("resume4","if3");
-                            //homeItemList.addAll(vehicleResponse.getData());
-                            //homeListAdapter.notifyDataSetChanged();
-                            //handler.post(new Runnable() {
-                            // @Override
-                            //public void run() {
-                            //}
-                            //});
-                        } else
-                            Toast.makeText(getContext(), (vehicleResponse.getMessage() != null ? vehicleResponse.getMessage() : "No responding data"), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getContext(), (vehicleResponse.getMessage() != null ? vehicleResponse.getMessage() : "Unknown response, please try again"), Toast.LENGTH_SHORT).show();
-                        //Log.e("resume5","else1");
-                    }
-                }
-                mVehicleResponse = vehicleResponse;
-                getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
-                progressBar.setVisibility(View.GONE);
-                vehicleViewModel.getVehicleResponse().removeObservers(getViewLifecycleOwner());
-                //Log.e("resume6","end of onChanged");
-            }
-        });
-    }
 
     private void setUpRecyclerView() {
         //if (homeListAdapter == null) {
@@ -312,7 +350,7 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
             public boolean onQueryTextSubmit(String query) {
                 progressBar.setVisibility(View.VISIBLE);
                 vehicleViewModel.searchedVehicleRequest(query);
-                previousQuery=query;
+                previousQuery = query;
                 observeSearchViewModel();
                 return false;
             }
@@ -323,49 +361,28 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
             }
         });
 
-        if (vehicleViewModel.getSearchedVehicleResponse().getValue() != null && previousQuery!=null) {
-            previousQuery = vehicleViewModel.getSearchedVehicleResponse().getValue().getSearch();
+        if (vehicleViewModel.getSearchedVehicleResponse() != null) {
+            if (vehicleViewModel.getSearchedVehicleResponse().getValue() != null && previousQuery != null) {
+                previousQuery = vehicleViewModel.getSearchedVehicleResponse().getValue().getSearch();
 
-            if (previousQuery != null && !previousQuery.isEmpty()) {
-                //mMenuItem.setVisible(false);
-                //searchView.setVisibility(View.INVISIBLE);
-                mMenuItem.expandActionView();
-                //searchView.setFocusable(false);
-                //searchView.setIconified(false);
-                searchView.clearFocus();
-                searchView.setQuery(previousQuery, false);
-                //mMenuItem.setVisible(true);
-                //mMenuItem.setVisible(true);
-                //searchView.setVisibility(View.VISIBLE);
+                if (previousQuery != null && !previousQuery.isEmpty()) {
+                    //mMenuItem.setVisible(false);
+                    //searchView.setVisibility(View.INVISIBLE);
+                    mMenuItem.expandActionView();
+                    //searchView.setFocusable(false);
+                    //searchView.setIconified(false);
+                    searchView.clearFocus();
+                    searchView.setQuery(previousQuery, false);
+                    //mMenuItem.setVisible(true);
+                    //mMenuItem.setVisible(true);
+                    //searchView.setVisibility(View.VISIBLE);
+                }
+
+                //Log.e("MenuItem",previousQuery);
+                //mMenuItem.collapseActionView();
             }
-
-            //Log.e("MenuItem",previousQuery);
-            //mMenuItem.collapseActionView();
+            super.onCreateOptionsMenu(menu, inflater);
         }
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-
-
-    private void getByCategory() {
-        switch (mCategoryName) {
-            case "car":
-                vehicleViewModel.searchedVehicleRequest("car");
-                observeSearchViewModel();
-                break;
-            case "bus":
-                vehicleViewModel.searchedVehicleRequest("bus");
-                observeSearchViewModel();
-                break;
-            case "motorcycle":
-                vehicleViewModel.searchedVehicleRequest("motorcycle");
-                observeSearchViewModel();
-                break;
-            default:
-                observeViewModel();
-                break;
-        }
-        previousQuery=null;
     }
 
 
@@ -384,8 +401,8 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
     @Override
     public void onStop() {
         super.onStop();
-        vehicleViewModel.getVehicleResponse().removeObservers(getViewLifecycleOwner());
-        vehicleViewModel.getSearchedVehicleResponse().removeObservers(getViewLifecycleOwner());
+        //vehicleViewModel.getAllVehicleResponse().removeObservers(getViewLifecycleOwner());
+        //vehicleViewModel.getSearchedVehicleResponse().removeObservers(getViewLifecycleOwner());
         getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
 
     }
@@ -398,6 +415,8 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
     @Override
     public void onResume() {
         super.onResume();
+        if (searchView != null)
+            searchView.clearFocus();
     }
 
 

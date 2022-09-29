@@ -160,7 +160,7 @@ public class MyBookingFragment extends Fragment implements HomeListAdapter.OnRec
                 mBookingHistoryResponse = bookingHistoryResponse;
                 getViewLifecycleOwnerLiveData().removeObservers(getViewLifecycleOwner());
                 progressBar.setVisibility(View.GONE);
-                vehicleViewModel.getVehicleResponse().removeObservers(getViewLifecycleOwner());
+                vehicleViewModel.getAllVehicleResponse().removeObservers(getViewLifecycleOwner());
                 //Log.e("resume6","end of onChanged");
             }
         });

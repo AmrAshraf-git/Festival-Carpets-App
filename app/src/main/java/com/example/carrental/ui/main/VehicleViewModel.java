@@ -368,7 +368,7 @@ public class VehicleViewModel extends ViewModel {
     }
 
 
-    public void loginRequest(User user) {
+    public void signInRequest(User user) {
         userLiveDataResponse = new MutableLiveData<>();
         mainRepository.remoteSignIn(user, new OnApiResponse() {
             @Override
@@ -534,16 +534,16 @@ public class VehicleViewModel extends ViewModel {
 
 
 
-    public LiveData<VehicleResponse> getVehicleResponse() {
+    public LiveData<VehicleResponse> getAllVehicleResponse() {
         return vehicleLiveDataResponse;
     }
     public MutableLiveData<BookingResponse> getBookingLiveDataResponse() {
         return bookingLiveDataResponse;
     }
-    public LiveData<SignInResponse> getUserResponse() {
+    public LiveData<SignInResponse> getSignInResponse() {
         return userLiveDataResponse;
     }
-    public LiveData<SignUpResponse> getNewUserResponse() {
+    public LiveData<SignUpResponse> getSignUpResponse() {
         return newUserLiveDataResponse;
     }
     public MutableLiveData<BookingHistoryResponse> getBookingHistoryResponse() {
