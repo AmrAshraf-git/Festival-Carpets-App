@@ -32,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/confirmation_imgView_imageOfVehicle"
+                    android:id="@+id/confirmation_imgView_imageOfItem"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     app:layout_constraintDimensionRatio="1:1"
@@ -40,7 +40,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/confirmation_LinLayout_modelAndPriceSec"
-                    app:srcCompat="@drawable/ic_car_default_black" />
+                    app:srcCompat="@drawable/ic_baseline_image" />
 
                 <LinearLayout
                     android:id="@+id/confirmation_LinLayout_modelAndPriceSec"
@@ -50,20 +50,20 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/confirmation_imgView_imageOfVehicle"
+                    app:layout_constraintStart_toEndOf="@id/confirmation_imgView_imageOfItem"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/confirmation_txtView_vehicleModel"
+                        android:id="@+id/confirmation_txtView_ItemModel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="Vehicle Model"
+                        android:text="Carpet Model"
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/confirmation_txtView_vehiclePrice"
+                        android:id="@+id/confirmation_txtView_ItemPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -94,7 +94,7 @@
                     android:drawablePadding="3dp"
                     android:gravity="center_vertical"
                     android:paddingLeft="3dp"
-                    android:text="Choose Period"
+                    android:text="Choose ٍDelivery Day"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:drawableLeftCompat="@drawable/ic_baseline_calendar_month" />
@@ -103,20 +103,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:elevation="10dp"
-                        android:src="@drawable/ic_baseline_arrow_circle_right"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="1:1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/confirmation_cardView_PickUp"
+                        android:id="@+id/confirmation_cardView_ChooseDeliveryDay"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_marginStart="5dp"
@@ -130,8 +118,8 @@
                         app:cardCornerRadius="10dp"
                         app:cardElevation="4dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="1:1"
-                        app:layout_constraintEnd_toStartOf="@id/confirmation_cardView_DropOff"
+                        app:layout_constraintDimensionRatio="1:0.5"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -139,18 +127,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:text="Pick-up"
-                                android:textSize="16sp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/confirmation_txtView_pickUpDayOfMonth"
+                                android:id="@+id/confirmation_txtView_DayOfMonth"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="28"
@@ -159,10 +138,10 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.4" />
+                                app:layout_constraintVertical_bias="0.2" />
 
                             <TextView
-                                android:id="@+id/confirmation_txtView_pickUpDayOfWeek"
+                                android:id="@+id/confirmation_txtView_DayOfWeek"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
@@ -171,11 +150,11 @@
                                 android:textStyle="bold"
                                 app:layout_constraintHorizontal_chainStyle="spread"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/confirmation_txtView_pickUpMonth"
+                                app:layout_constraintEnd_toStartOf="@id/confirmation_txtView_Month"
                                 app:layout_constraintStart_toStartOf="parent" />
 
                             <TextView
-                                android:id="@+id/confirmation_txtView_pickUpMonth"
+                                android:id="@+id/confirmation_txtView_Month"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
@@ -184,81 +163,7 @@
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/confirmation_txtView_pickUpDayOfWeek" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/confirmation_cardView_DropOff"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_weight="1"
-                        android:focusable="false"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        app:cardBackgroundColor="@color/list_item"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="4dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="1:1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/confirmation_cardView_PickUp"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:text="Drop-off"
-                                android:textSize="16sp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/confirmation_txtView_dropOffDayOfMonth"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="29"
-                                android:textSize="90sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.4" />
-
-                            <TextView
-                                android:id="@+id/confirmation_txtView_dropOffDayOfWeek"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:text="Friday"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                app:layout_constraintHorizontal_chainStyle="spread"
-
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/confirmation_txtView_dropOffMonth"
-                                app:layout_constraintStart_toStartOf="parent" />
-
-                            <TextView
-                                android:id="@+id/confirmation_txtView_dropOffMonth"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:text="October"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/confirmation_txtView_dropOffDayOfWeek" />
+                                app:layout_constraintStart_toEndOf="@id/confirmation_txtView_DayOfWeek" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>
 

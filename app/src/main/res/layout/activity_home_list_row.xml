@@ -29,7 +29,7 @@
             android:id="@+id/homeListRow_txtView_carModel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="Car Model"
+            android:text="Carpet Category"
             android:textStyle="bold"
             android:gravity="start"
             android:textSize="18sp"
@@ -43,7 +43,7 @@
             android:id="@+id/homeListRow_txtView_compName"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="Company Name"
+            android:text="Carper Model"
             android:textSize="18sp"
             android:textStyle="bold"
             android:gravity="end"
@@ -53,33 +53,6 @@
         </TextView>
 
 
-        <RatingBar
-            android:id="@+id/homeListRow_ratingBar_carRate"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isIndicator="true"
-            android:numStars="5"
-
-            android:stepSize="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/homeListRow_txtView_carModel"
-            app:layout_constraintEnd_toStartOf="@id/homeListRow_ratingBar_compRate"
-            app:layout_constraintTop_toBottomOf="@id/homeListRow_txtView_carModel" />
-
-        <RatingBar
-            android:id="@+id/homeListRow_ratingBar_compRate"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:stepSize="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/homeListRow_ratingBar_carRate"
-            app:layout_constraintEnd_toEndOf="@id/homeListRow_txtView_compName"
-            app:layout_constraintTop_toTopOf="@id/homeListRow_ratingBar_carRate" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -102,7 +75,7 @@
             android:id="@+id/homeListRow_imgView_car"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/img_logo_test"
+            android:src="@drawable/ic_baseline_image"
 
             android:contentDescription="Car Picture"
             android:padding="7dp"
@@ -157,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Color"
+                android:text="Size"
                 android:textSize="18sp"
 
                 app:drawableLeftCompat="@drawable/ic_baseline_color"
@@ -170,40 +143,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Doors No."
-
+                android:text="Color"
                 android:textSize="18sp"
-
-                app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec3"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec1"
-                app:drawableLeftCompat="@drawable/ic_baseline_door"
+                app:drawableLeftCompat="@drawable/ic_baseline_photo_size_select_small"
                 >
             </TextView>
 
-            <TextView
-                android:id="@+id/homeListRow_txtView_spec3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Chairs No."
-                android:textSize="18sp"
-                app:drawableLeftCompat="@drawable/ic_baseline_chair"
-                app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec4"
-                app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec2">
-            </TextView>
 
-            <TextView
-                android:id="@+id/homeListRow_txtView_spec4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Engine"
-                android:textSize="18sp"
-
-                app:drawableLeftCompat="@drawable/ic_baseline_gear"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec3">
-            </TextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -516,25 +464,10 @@
             app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_lbl"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/homeListRow_txtView_days">
-        </TextView>
-
-        <TextView
-            android:id="@+id/homeListRow_txtView_days"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Per day"
-            android:textSize="14sp"
-            android:paddingTop="10dp"
-            android:layout_marginStart="5dp"
-            android:textAlignment="gravity"
-            android:gravity="bottom"
-
-            app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_price"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
         </TextView>
+
+
 
         <!--
                 <Button

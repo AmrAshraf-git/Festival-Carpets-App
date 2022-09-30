@@ -7,7 +7,7 @@
     tools:context=".ui.main.fragment.ChooseCategoryFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/category_cardView_Cars"
+        android:id="@+id/category_cardView_silkCarpet"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
@@ -20,7 +20,7 @@
         app:cardCornerRadius="30dp"
         app:cardElevation="4dp"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@id/category_cardView_Buses"
+        app:layout_constraintEnd_toStartOf="@id/category_cardView_acrylicCarpet"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -29,35 +29,35 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/category_imageView_Cars"
+                android:id="@+id/category_imageView_silkCarpet"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:elevation="10dp"
-                android:src="@drawable/ic_baseline_directions_car"
-                app:layout_constraintBottom_toTopOf="@id/category_txtView_Cars"
+                android:src="@drawable/ic_baseline_image"
+                app:layout_constraintBottom_toTopOf="@id/category_txtView_silkCarpet"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/dark_blue" />
 
             <TextView
-                android:id="@+id/category_txtView_Cars"
+                android:id="@+id/category_txtView_silkCarpet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:text="Cars"
+                android:text="Silk Carpets"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_imageView_Cars" />
+                app:layout_constraintTop_toBottomOf="@id/category_imageView_silkCarpet" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/category_cardView_Buses"
+        android:id="@+id/category_cardView_acrylicCarpet"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
@@ -71,7 +71,7 @@
         app:cardElevation="4dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/category_cardView_Cars"
+        app:layout_constraintStart_toEndOf="@id/category_cardView_silkCarpet"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,36 +79,36 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/category_imageView_Buses"
+                android:id="@+id/category_imageView_acrylicCarpet"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:elevation="10dp"
-                android:src="@drawable/ic_baseline_directions_bus"
-                app:layout_constraintBottom_toTopOf="@id/category_txtView_Buses"
+                android:src="@drawable/ic_baseline_image"
+                app:layout_constraintBottom_toTopOf="@id/category_txtView_acrylicCarpet"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/dark_blue" />
 
             <TextView
-                android:id="@+id/category_txtView_Buses"
+                android:id="@+id/category_txtView_acrylicCarpet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:text="Buses"
+                android:text="Acrylic Carpets"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_imageView_Buses" />
+                app:layout_constraintTop_toBottomOf="@id/category_imageView_acrylicCarpet" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/category_cardView_Motorbikes"
+        android:id="@+id/category_cardView_shagCarpet"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
@@ -123,18 +123,18 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@id/category_cardView_All"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/category_cardView_Cars">
+        app:layout_constraintTop_toBottomOf="@id/category_cardView_silkCarpet">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/category_imageView_Motorbikes"
+                android:id="@+id/category_imageView_shagCarpet"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:elevation="10dp"
-                android:src="@drawable/ic_baseline_pedal_bike"
+                android:src="@drawable/ic_baseline_image"
                 app:layout_constraintBottom_toTopOf="@id/category_txtView_Motorbikes"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -148,12 +148,12 @@
 
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
-                android:text="Motorbikes"
+                android:text="Shag Carpets"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_imageView_Motorbikes" />
+                app:layout_constraintTop_toBottomOf="@id/category_imageView_shagCarpet" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -173,8 +173,8 @@
         app:cardElevation="4dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/category_cardView_Motorbikes"
-        app:layout_constraintTop_toBottomOf="@id/category_cardView_Buses">
+        app:layout_constraintStart_toEndOf="@id/category_cardView_shagCarpet"
+        app:layout_constraintTop_toBottomOf="@id/category_cardView_acrylicCarpet">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

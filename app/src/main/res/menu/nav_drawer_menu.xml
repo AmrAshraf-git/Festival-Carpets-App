@@ -17,13 +17,13 @@
 
         <item
             android:id="@+id/nav_history"
-            android:title="Booking History"
+            android:title="Purchases History"
             android:checked="false"
             android:icon="@drawable/ic_baseline_history"/>
 
         <item
-            android:id="@+id/nav_my_booking"
-            android:title="My booking"
+            android:id="@+id/nav_tracking"
+            android:title="Tracking My Orders"
             android:icon="@drawable/ic_baseline_request" />
     </group>
 

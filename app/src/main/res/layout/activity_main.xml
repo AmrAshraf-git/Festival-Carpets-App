@@ -15,19 +15,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.5"
-        android:text="@string/welcome_to_car_rental_app"
+        android:text="@string/welcome_to"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:gravity="center"
         android:singleLine="true"
-        android:textSize="20sp">
+        android:textSize="30sp">
     </TextView>
     <ImageView
         android:id="@+id/main_imgView_logo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:src="@drawable/img_logo_test"
+        android:src="@drawable/new_logo_white"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:contentDescription="@string/app_logo">
@@ -38,7 +38,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center|bottom"
-
         android:orientation="vertical" >
 
         <androidx.appcompat.widget.AppCompatButton

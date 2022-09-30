@@ -12,19 +12,18 @@
         android:id="@+id/entryPage_txtView_frgmntTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_riding"
+        android:layout_marginStart="8dp"
+        android:text="@string/start_shopping"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_marginStart="8dp"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintVertical_bias="0.8"
-        app:layout_constraintVertical_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/entryPage_constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </TextView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintVertical_weight="1"></TextView>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
