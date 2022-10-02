@@ -9,7 +9,7 @@
     android:descendantFocusability="blocksDescendants"
     android:background="@color/main_background"
     android:orientation="vertical"
-    tools:context=".ui.main.fragment.navigation.HomeFragment">
+    tools:context=".fragment.navigation.HomeFragment">
 
 
 

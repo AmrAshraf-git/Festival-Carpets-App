@@ -11,7 +11,8 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:contentDescription="@string/content_description_for_slider_item"
+        app:tint="@color/blue"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/img_logo_test" />
+        app:srcCompat="@drawable/ic_car_default_black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

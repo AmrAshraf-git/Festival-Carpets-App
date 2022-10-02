@@ -67,7 +67,9 @@
                         android:maxLines="1"
                         android:text="Km away from you"
                         android:textSize="12sp"
-                        app:drawableLeftCompat="@drawable/ic_baseline_location_on"></TextView>
+                        app:drawableLeftCompat="@drawable/ic_baseline_location_on">
+
+                    </TextView>
 
 
                 </LinearLayout>
@@ -786,7 +788,9 @@
                 android:textColor="@color/white"
 
                 android:textSize="16sp"
-                app:elevation="4dp"></androidx.appcompat.widget.AppCompatButton>
+                app:elevation="4dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
 
         </LinearLayout>
     </ScrollView>

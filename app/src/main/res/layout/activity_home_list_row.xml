@@ -17,196 +17,123 @@
         android:orientation="vertical"
         android:padding="4dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/homeListRow_constLayout_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="7dp"
-        android:paddingEnd="7dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/homeListRow_constLayout_middle">
-        <TextView
-            android:id="@+id/homeListRow_txtView_carModel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="Carpet Category"
-            android:textStyle="bold"
-            android:gravity="start"
-            android:textSize="18sp"
-            android:maxLines="2"
-
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/homeListRow_txtView_compName"
-            app:layout_constraintHorizontal_chainStyle="spread_inside">
-        </TextView>
-        <TextView
-            android:id="@+id/homeListRow_txtView_compName"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="Carper Model"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="end"
-
-            app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_carModel"
-            app:layout_constraintEnd_toEndOf="parent">
-        </TextView>
-
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/homeListRow_constLayout_middle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/homeListRow_constLayout_top"
-        app:layout_constraintBottom_toTopOf="@id/homeListRow_constLayout_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="7dp"
-        android:columnCount="2"
-        android:rowCount="1"
-        android:orientation="horizontal"
-        android:layout_marginTop="12dp">
-
-        <ImageView
-            android:id="@+id/homeListRow_imgView_car"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:src="@drawable/ic_baseline_image"
-
-            android:contentDescription="Car Picture"
-            android:padding="7dp"
-            android:layout_marginEnd="15dp"
-
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/homeListRow_constLayout_specs"
-            app:layout_constraintBottom_toBottomOf="parent" />
-        <!--"homeListRow_imgView_car" height based on "homeListRow_constLayout_specs hight"-->
-<!--
-        <ImageButton
-            android:id="@+id/homeListRow_btn_favorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_btn_favorite"
-            android:padding="1dp"
-            android:scaleType="center"
-            android:clickable="true"
-            android:background="@android:color/transparent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintVertical_bias="0"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            app:layout_constraintStart_toStartOf="@id/homeListRow_imgView_car"
-            app:layout_constraintEnd_toEndOf="@id/homeListRow_imgView_car"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="@id/homeListRow_imgView_car"
-            android:contentDescription="Add to favorite"
-            android:focusable="true">
-        </ImageButton>
--->
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/homeListRow_constLayout_specs"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="35dp"
-            android:background="@drawable/ic_border_rounded"
-            android:orientation="vertical"
-            android:padding="7dp"
-
-            app:layout_constraintHorizontal_weight="1"
+            android:id="@+id/homeListRow_constLayout_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/homeListRow_imgView_car"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-
+            app:layout_constraintBottom_toTopOf="@id/homeListRow_constLayout_middle">
             <TextView
-                android:id="@+id/homeListRow_txtView_spec1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Size"
+                android:id="@+id/homeListRow_txtView_carModel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Carpet Category"
+                android:textStyle="bold"
+                android:gravity="start"
                 android:textSize="18sp"
+                android:maxLines="2"
 
-                app:drawableLeftCompat="@drawable/ic_baseline_color"
-                app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec2"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/homeListRow_txtView_compName"
+                app:layout_constraintHorizontal_chainStyle="spread_inside">
+            </TextView>
+            <TextView
+                android:id="@+id/homeListRow_txtView_compName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Carper Model"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="end"
+
+                app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_carModel"
+                app:layout_constraintEnd_toEndOf="parent">
             </TextView>
 
-            <TextView
-                android:id="@+id/homeListRow_txtView_spec2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Color"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec1"
-                app:drawableLeftCompat="@drawable/ic_baseline_photo_size_select_small"
-                >
-            </TextView>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--
-        <GridLayout
-            android:id="@+id/homeListRow_lnLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/homeListRow_constLayout_middle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/homeListRow_constLayout_top"
-            app:layout_constraintBottom_toTopOf="@id/homeListRow_grdLayout_book"
+            app:layout_constraintBottom_toTopOf="@id/homeListRow_constLayout_bottom"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="7dp"
-            android:layout_marginStart="7dp"
+            android:padding="7dp"
             android:columnCount="2"
             android:rowCount="1"
             android:orientation="horizontal"
-            android:layout_marginTop="32dp">
-
+            android:layout_marginTop="12dp">
 
             <ImageView
                 android:id="@+id/homeListRow_imgView_car"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_columnSpan="1"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:src="@drawable/img_logo_test"
-                app:tint="@color/blue"
+                android:src="@drawable/ic_baseline_image"
+
+                android:contentDescription="Car Picture"
                 android:padding="7dp"
                 android:layout_marginEnd="15dp"
+
+                app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/homeListRow_constLayout_specs"
                 app:layout_constraintBottom_toBottomOf="parent" />
+            <!--"homeListRow_imgView_car" height based on "homeListRow_constLayout_specs hight"-->
+            <!--
+                    <ImageButton
+                        android:id="@+id/homeListRow_btn_favorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_btn_favorite"
+                        android:padding="1dp"
+                        android:scaleType="center"
+                        android:clickable="true"
+                        android:background="@android:color/transparent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintVertical_bias="0"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        app:layout_constraintStart_toStartOf="@id/homeListRow_imgView_car"
+                        app:layout_constraintEnd_toEndOf="@id/homeListRow_imgView_car"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/homeListRow_imgView_car"
+                        android:contentDescription="Add to favorite"
+                        android:focusable="true">
+                    </ImageButton>
+            -->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/homeListRow_constLayout_specs"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="35dp"
-                android:background="@drawable/bg_rounded"
+                android:background="@drawable/ic_border_rounded"
                 android:orientation="vertical"
                 android:padding="7dp"
-                android:layout_columnSpan="1"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1">
+
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/homeListRow_imgView_car"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
                     android:id="@+id/homeListRow_txtView_spec1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Spec 1"
+                    android:text="Size"
                     android:textSize="18sp"
+
+                    app:drawableLeftCompat="@drawable/ic_baseline_color"
                     app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec2"
                     app:layout_constraintTop_toTopOf="parent">
                 </TextView>
@@ -216,64 +143,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Spec 2"
+                    android:text="Color"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec3"
-                    app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec1">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/homeListRow_txtView_spec3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Spec 3"
-                    android:textSize="18sp"
-
-                    app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec4"
-                    app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec2">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/homeListRow_txtView_spec4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Spec 4"
-                    android:textSize="18sp"
-
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec3">
+                    app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec1"
+                    app:drawableLeftCompat="@drawable/ic_baseline_photo_size_select_small"
+                    >
                 </TextView>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </GridLayout>
-    -->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!--
-        <LinearLayout
-            android:id="@+id/homeListRow_lnLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeListRow_txtView_compName"
-            app:layout_constraintBottom_toTopOf="@id/homeListRow_grdLayout_book"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="7dp"
-            android:layout_marginStart="7dp"
-            android:weightSum="2"
-            android:orientation="horizontal"
-            android:layout_marginTop="32dp"
-            android:baselineAligned="false">
+        <!--
+            <GridLayout
+                android:id="@+id/homeListRow_lnLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homeListRow_constLayout_top"
+                app:layout_constraintBottom_toTopOf="@id/homeListRow_grdLayout_book"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="7dp"
+                android:layout_marginStart="7dp"
+                android:columnCount="2"
+                android:rowCount="1"
+                android:orientation="horizontal"
+                android:layout_marginTop="32dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+
                 <ImageView
                     android:id="@+id/homeListRow_imgView_car"
-                    android:layout_width="match_parent"
-                    android:layout_height="0pt"
-                    app:layout_constraintHeight_percent="1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
                     android:src="@drawable/img_logo_test"
                     app:tint="@color/blue"
                     android:padding="7dp"
@@ -282,220 +187,315 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/homeListRow_constLayout_specs"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="35dp"
-                android:background="@drawable/bg_rounded"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/homeListRow_imgView_car"
-                app:layout_constraintTop_toBottomOf="@id/homeListRow_txtView_carModel"
-                android:padding="7dp">
-
-                <TextView
-                    android:id="@+id/homeListRow_txtView_spec1"
-                    android:layout_width="match_parent"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/homeListRow_constLayout_specs"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Spec 1"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec2"
-                    app:layout_constraintTop_toTopOf="parent">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/homeListRow_txtView_spec2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Spec 2"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec3"
-                    app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec1">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/homeListRow_txtView_spec3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Spec 3"
-                    android:textSize="18sp"
-
-                    app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec4"
-                    app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec2">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/homeListRow_txtView_spec4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Spec 4"
-                    android:textSize="18sp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec3">
-                </TextView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    -->
-    <!--
-    <GridLayout
-        android:id="@+id/homeListRow_grdLayout_book"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:columnCount="2"
-        android:rowCount="3"
-        android:orientation="horizontal"
-        android:padding="7dp"
-        android:background="@drawable/bg_rounded"
-
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/homeListRow_constLayout_bottom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/homeListRow_constLayout_middle">
-
-        <TextView
-            android:id="@+id/homeListRow_txtView_bookTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Booking Details"
-            android:gravity="center_horizontal"
-            android:textStyle="bold"
-            android:layout_columnSpan="2"
-            android:layout_columnWeight="1"
-            android:layout_marginBottom="15dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/homeListRow_txtView_bookDtls1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Detail 1"
-            android:layout_columnSpan="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="2dp">
-        </TextView>
-        <TextView
-            android:id="@+id/homeListRow_txtView_bookDtls2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Detail 2"
-            android:gravity="end"
-
-            android:layout_columnSpan="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="2dp"
-            >
-        </TextView>
-        <TextView
-            android:id="@+id/homeListRow_txtView_bookDtls3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Detail 3"
-
-            android:layout_columnSpan="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="2dp">
-        </TextView>
-        <TextView
-            android:id="@+id/homeListRow_txtView_bookDtls4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Detail 4"
-            android:gravity="end"
-            android:layout_columnSpan="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="2dp">
-        </TextView>
-    </GridLayout>
-
-
--->
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/homeListRow_constLayout_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:paddingStart="7dp"
-        android:paddingEnd="7dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/homeListRow_constLayout_middle">
-
-
-        <TextView
-            android:id="@+id/homeListRow_txtView_lbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="$ "
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="1"
-
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/homeListRow_txtView_price"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </TextView>
-
-        <TextView
-            android:id="@+id/homeListRow_txtView_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price"
-            android:textSize="18sp"
-            android:textStyle="bold"
-
-            app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_lbl"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-        </TextView>
-
-
-
-        <!--
-                <Button
-                    android:id="@+id/homeListRow_btn_continue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="continue"
-
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"
-
-                    android:textColor="@color/white"
+                    android:layout_marginStart="35dp"
                     android:background="@drawable/bg_rounded"
-                    android:backgroundTint="@color/blue"
-                    android:textAllCaps="false"
-                    app:layout_constraintHorizontal_bias="1"
+                    android:orientation="vertical"
+                    android:padding="7dp"
+                    android:layout_columnSpan="1"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1">
 
-                    app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_price"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-                </Button>
+                    <TextView
+                        android:id="@+id/homeListRow_txtView_spec1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Spec 1"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec2"
+                        app:layout_constraintTop_toTopOf="parent">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/homeListRow_txtView_spec2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Spec 2"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec3"
+                        app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec1">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/homeListRow_txtView_spec3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Spec 3"
+                        android:textSize="18sp"
+
+                        app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec4"
+                        app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec2">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/homeListRow_txtView_spec4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Spec 4"
+                        android:textSize="18sp"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec3">
+                    </TextView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </GridLayout>
         -->
 
+        <!--
+            <LinearLayout
+                android:id="@+id/homeListRow_lnLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/homeListRow_txtView_compName"
+                app:layout_constraintBottom_toTopOf="@id/homeListRow_grdLayout_book"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="7dp"
+                android:layout_marginStart="7dp"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_marginTop="32dp"
+                android:baselineAligned="false">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/homeListRow_imgView_car"
+                        android:layout_width="match_parent"
+                        android:layout_height="0pt"
+                        app:layout_constraintHeight_percent="1"
+                        android:src="@drawable/img_logo_test"
+                        app:tint="@color/blue"
+                        android:padding="7dp"
+                        android:layout_marginEnd="15dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/homeListRow_constLayout_specs"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="35dp"
+                    android:background="@drawable/bg_rounded"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/homeListRow_imgView_car"
+                    app:layout_constraintTop_toBottomOf="@id/homeListRow_txtView_carModel"
+                    android:padding="7dp">
+
+                    <TextView
+                        android:id="@+id/homeListRow_txtView_spec1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Spec 1"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec2"
+                        app:layout_constraintTop_toTopOf="parent">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/homeListRow_txtView_spec2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Spec 2"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec3"
+                        app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec1">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/homeListRow_txtView_spec3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Spec 3"
+                        android:textSize="18sp"
+
+                        app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec4"
+                        app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec2">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/homeListRow_txtView_spec4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Spec 4"
+                        android:textSize="18sp"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec3">
+                    </TextView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        -->
+        <!--
+        <GridLayout
+            android:id="@+id/homeListRow_grdLayout_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:orientation="horizontal"
+            android:padding="7dp"
+            android:background="@drawable/bg_rounded"
+
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/homeListRow_constLayout_bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeListRow_constLayout_middle">
+
+            <TextView
+                android:id="@+id/homeListRow_txtView_bookTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Booking Details"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:layout_columnSpan="2"
+                android:layout_columnWeight="1"
+                android:layout_marginBottom="15dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/homeListRow_txtView_bookDtls1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Detail 1"
+                android:layout_columnSpan="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp">
+            </TextView>
+            <TextView
+                android:id="@+id/homeListRow_txtView_bookDtls2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Detail 2"
+                android:gravity="end"
+
+                android:layout_columnSpan="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/homeListRow_txtView_bookDtls3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Detail 3"
+
+                android:layout_columnSpan="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp">
+            </TextView>
+            <TextView
+                android:id="@+id/homeListRow_txtView_bookDtls4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Detail 4"
+                android:gravity="end"
+                android:layout_columnSpan="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="2dp">
+            </TextView>
+        </GridLayout>
+
+
+    -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/homeListRow_constLayout_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeListRow_constLayout_middle">
+
+
+            <TextView
+                android:id="@+id/homeListRow_txtView_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$ "
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintHorizontal_bias="1"
+
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/homeListRow_txtView_price"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+            </TextView>
+
+            <TextView
+                android:id="@+id/homeListRow_txtView_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textSize="18sp"
+                android:textStyle="bold"
+
+                app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_lbl"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+            </TextView>
+
+
+
+            <!--
+                    <Button
+                        android:id="@+id/homeListRow_btn_continue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="continue"
+
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+
+                        android:textColor="@color/white"
+                        android:background="@drawable/bg_rounded"
+                        android:backgroundTint="@color/blue"
+                        android:textAllCaps="false"
+                        app:layout_constraintHorizontal_bias="1"
+
+                        app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_price"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                    </Button>
+            -->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
