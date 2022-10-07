@@ -147,7 +147,7 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
     }*/
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if (!mAlreadyLoaded) {
             mAlreadyLoaded = true;
@@ -159,7 +159,7 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
             progressBar = view.findViewById(R.id.homePageF_prgrsBar);
 
             //searchResult.setVisibility(View.GONE);
-            progressBar.setVisibility(View.VISIBLE);
+            //progressBar.setVisibility(View.VISIBLE);
 
             linearLayoutManager = new LinearLayoutManager(getContext());
 
