@@ -18,6 +18,7 @@
 
     <color name="main_background">#000000</color>
     <color name="list_item">#212121</color>
+    <color name="icons">#7D7D7D</color>
 
 
     <!--Gradients-->

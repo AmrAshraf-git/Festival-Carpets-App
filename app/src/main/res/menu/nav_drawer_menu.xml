@@ -52,7 +52,7 @@
                 <item
                     android:id="@+id/nav_cont_us"
                     android:title="Contact Us"
-                    android:icon="@drawable/ic_baseline_email"/>
+                    android:icon="@drawable/ic_baseline_phone"/>
                 <item
                     android:id="@+id/nav_privacy"
                     android:title="Privacy"

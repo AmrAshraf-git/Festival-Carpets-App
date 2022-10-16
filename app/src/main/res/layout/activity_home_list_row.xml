@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/homeListRow_constLayout_middle">
             <TextView
-                android:id="@+id/homeListRow_txtView_carModel"
+                android:id="@+id/homeListRow_txtView_carpetCategory"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="Carpet Category"
@@ -36,11 +36,11 @@
                 android:maxLines="2"
 
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/homeListRow_txtView_compName"
+                app:layout_constraintEnd_toStartOf="@id/homeListRow_txtView_carpetModel"
                 app:layout_constraintHorizontal_chainStyle="spread_inside">
             </TextView>
             <TextView
-                android:id="@+id/homeListRow_txtView_compName"
+                android:id="@+id/homeListRow_txtView_carpetModel"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="Carper Model"
@@ -48,7 +48,7 @@
                 android:textStyle="bold"
                 android:gravity="end"
 
-                app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_carModel"
+                app:layout_constraintStart_toEndOf="@id/homeListRow_txtView_carpetCategory"
                 app:layout_constraintEnd_toEndOf="parent">
             </TextView>
 
@@ -130,9 +130,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Size"
+                    android:text="Color"
                     android:textSize="18sp"
-
+                    android:drawableTint="@color/icons"
                     app:drawableLeftCompat="@drawable/ic_baseline_color"
                     app:layout_constraintBottom_toTopOf="@+id/homeListRow_txtView_spec2"
                     app:layout_constraintTop_toTopOf="parent">
@@ -143,11 +143,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Color"
+                    android:text="Size"
                     android:textSize="18sp"
+                    android:drawableTint="@color/icons"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/homeListRow_txtView_spec1"
-                    app:drawableLeftCompat="@drawable/ic_baseline_photo_size_select_small"
+                    app:drawableLeftCompat="@drawable/ic_baseline_crop_portrait"
                     >
                 </TextView>
 
@@ -441,7 +442,7 @@
                 android:id="@+id/homeListRow_txtView_lbl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$ "
+                android:text=""
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="1"

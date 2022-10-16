@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="First Name"
+        android:drawableTint="@color/icons"
         app:drawableLeftCompat="@drawable/ic_baseline_perm_identity" />
 
     <TextView
@@ -30,6 +31,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableTint="@color/icons"
         android:drawableLeft="@drawable/ic_baseline_perm_identity"
         android:text="Last Name" />
 
@@ -49,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="E-Mail"
+        android:drawableTint="@color/icons"
         app:drawableLeftCompat="@drawable/ic_baseline_email" />
 
     <TextView
@@ -67,7 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Phone Number"
-        app:drawableLeftCompat="@drawable/ic_baseline_phone" />
+        android:drawableTint="@color/icons"
+        app:drawableLeftCompat="@drawable/ic_baseline_color" />
 
     <TextView
         android:id="@+id/profile_txtView_phone"

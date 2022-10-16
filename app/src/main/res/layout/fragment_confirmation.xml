@@ -118,7 +118,7 @@
                         app:cardCornerRadius="10dp"
                         app:cardElevation="4dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="1:0.5"
+                        app:layout_constraintDimensionRatio="1:0.4"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -131,39 +131,54 @@
                             <TextView
                                 android:id="@+id/confirmation_txtView_DayOfMonth"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="0dp"
+                                android:gravity="center"
                                 android:text="28"
                                 android:textSize="90sp"
+                                android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/confirmation_txtView_DayOfWeek"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.2" />
-
-                            <TextView
-                                android:id="@+id/confirmation_txtView_DayOfWeek"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:text="Thursday"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                app:layout_constraintHorizontal_chainStyle="spread"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/confirmation_txtView_Month"
-                                app:layout_constraintStart_toStartOf="parent" />
+                                app:layout_constraintVertical_bias="0.0" />
 
                             <TextView
                                 android:id="@+id/confirmation_txtView_Month"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
                                 android:text="October"
-                                android:textSize="16sp"
+                                android:textSize="24sp"
                                 android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/confirmation_txtView_DayOfWeek" />
+                                app:layout_constraintStart_toEndOf="@id/confirmation_txtView_DayOfMonth"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@id/confirmation_txtView_DayOfWeek" />
+
+                            <TextView
+                                android:id="@+id/confirmation_txtView_DayOfWeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Thursday"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toEndOf="@id/confirmation_txtView_DayOfMonth"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/confirmation_txtView_Month"
+                                app:layout_constraintBottom_toTopOf="@id/confirmation_txtView_Year" />
+
+
+                            <TextView
+                                android:id="@+id/confirmation_txtView_Year"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1999"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/confirmation_txtView_DayOfMonth"
+                                app:layout_constraintTop_toBottomOf="@id/confirmation_txtView_DayOfWeek"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -198,14 +213,54 @@
                     android:textStyle="bold"
                     app:drawableLeftCompat="@drawable/ic_baseline_location_on" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/confirmation_switch_pickUp"
+                <TextView
+                    android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="5dp"
-                    android:showText="false"
-                    android:text="Deliver vehicle to different location"
-                    android:textAlignment="viewStart" />
+                    android:text="Select a Location to Pick-up Your Order" />
+
+                <RadioGroup
+                    android:id="@+id/confirmation_radioGroup_Locations"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <RadioButton
+                        android:id="@+id/confirmation_radioBtn_Abbas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Abbas Al-Akkad Branch" />
+
+                    <TextView
+                        android:id="@+id/confirmation_txtView_AbbasAway"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center|top"
+                        android:maxLines="1"
+                        android:text="N Km away from you" />
+
+                    <RadioButton
+                        android:id="@+id/confirmation_radioBtn_Hassanein"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hassanein Heilkal Branch" />
+
+                    <TextView
+                        android:id="@+id/confirmation_txtView_HassaneinAway"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_horizontal|top"
+                        android:maxLines="1"
+                        android:text="N Km away from you" />
+
+                    <RadioButton
+                        android:id="@+id/confirmation_radioBtn_Other"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Deliver to different location (Extra fees)" />
+
+                </RadioGroup>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/confirmation_cardView_PickUpLocation"
@@ -235,47 +290,9 @@
                         android:paddingEnd="5dp"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableStartCompat="@drawable/ic_baseline_arrow_forward" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/confirmation_switch_dropOff"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="5dp"
-                    android:showText="false"
-                    android:text="Return vehicle to different location"
-                    android:textAlignment="viewStart" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/confirmation_cardView_dropOffLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginEnd="3dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="1"
-                    android:focusable="false"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"
-                    app:cardBackgroundColor="@color/list_item"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="4dp">
-
-                    <TextView
-                        android:id="@+id/confirmation_txtView_dropOffLocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:drawablePadding="3dp"
-                        android:gravity="center_vertical"
-                        android:hint="Drop-off Location"
-                        android:maxLines="1"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:drawableStartCompat="@drawable/ic_baseline_arrow_back" />
+                        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward"
+                        app:drawableStartCompat="@drawable/ic_baseline_location_on"
+                        tools:visibility="visible" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -283,7 +300,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/confirmation_LinLayout_companyInfoSec"
+                android:id="@+id/confirmation_LinLayout_branchInfoSec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -302,52 +319,32 @@
                     android:drawablePadding="3dp"
                     android:gravity="center_vertical"
                     android:paddingLeft="3dp"
-                    android:text="Company Information"
+                    android:text="Selected Branch Information"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:drawableLeftCompat="@drawable/ic_baseline_car_crash" />
+                    app:drawableLeftCompat="@drawable/ic_baseline_info" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rating" />
-
-                    <RatingBar
-                        android:id="@+id/confirmation_ratingBar_companyRating"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:isIndicator="true"
-                        android:numStars="5"
-                        android:stepSize="0.1" />
-                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/confirmation_txtView_companyName"
+                    android:id="@+id/confirmation_txtView_branchName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Name: NULL" />
 
                 <TextView
-                    android:id="@+id/confirmation_txtView_companyAddress"
+                    android:id="@+id/confirmation_txtView_branchAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Address: NULL" />
 
                 <TextView
-                    android:id="@+id/confirmation_txtView_companyPhoneNumber"
+                    android:id="@+id/confirmation_txtView_branchPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Phone Number: NULL" />
 
                 <TextView
-                    android:id="@+id/confirmation_txtView_companyLocationOnMap"
+                    android:id="@+id/confirmation_txtView_branchLocationOnMap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Location On Map"
@@ -378,63 +375,6 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/confirmation_LinLayout_rentalReqSec"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/border"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/confirmation_LinLayout_companyInfoSec">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:drawablePadding="3dp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="3dp"
-                    android:text="Rental Requirements"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:drawableLeftCompat="@drawable/ic_baseline_label_important" />
-
-                <TextView
-                    android:id="@+id/confirmation_txtView_R1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="\u25CF R1" />
-
-                <TextView
-                    android:id="@+id/confirmation_txtView_R2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="\u25CF R2" />
-
-                <TextView
-                    android:id="@+id/confirmation_txtView_R3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="\u25CF R3" />
-
-                <TextView
-                    android:id="@+id/confirmation_txtView_R4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="\u25CF R4" />
-
-                <TextView
-                    android:id="@+id/confirmation_txtView_R5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="\u25CF R5" />
-
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/confirmation_LinLayout_addNoteSec"
@@ -447,7 +387,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/confirmation_LinLayout_rentalReqSec">
+                app:layout_constraintTop_toBottomOf="@id/confirmation_LinLayout_branchInfoSec">
 
                 <TextView
                     android:layout_width="match_parent"

@@ -80,6 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:drawableTint="@color/icons"
         android:drawableStart="@drawable/ic_baseline_location_on"
         android:text="Unknown"
         app:layout_constraintEnd_toEndOf="parent"
