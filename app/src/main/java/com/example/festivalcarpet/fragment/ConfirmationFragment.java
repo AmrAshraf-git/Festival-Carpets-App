@@ -31,12 +31,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Objects;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ConfirmationFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ConfirmationFragment extends Fragment implements DatePickerDialog.OnDateSetListener{
 
 
@@ -79,7 +76,6 @@ public class ConfirmationFragment extends Fragment implements DatePickerDialog.O
     private static final String VEHICLE_ID = "idKey";
     private static final String VEHICLE_PRICE = "priceKey";
 
-    // TODO: Rename and change types of parameters
     private String vehicleImage;
     private String vehicleModel;
     private String vehicleId;
@@ -89,7 +85,7 @@ public class ConfirmationFragment extends Fragment implements DatePickerDialog.O
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
+
     public static ConfirmationFragment newInstance(String vehicleImage, String vehicleModel, @NonNull String vehicleId,
                                                    String vehiclePrice) {
         ConfirmationFragment fragment = new ConfirmationFragment();
@@ -122,7 +118,7 @@ public class ConfirmationFragment extends Fragment implements DatePickerDialog.O
             }
         });
 
-        actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.festivalcarpet.fragment.navigation;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -138,6 +139,12 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
         homeListItemArrayList.add(carpet3);
         homeListItemArrayList.add(carpet);
         homeListItemArrayList.add(carpet2);
+        homeListItemArrayList.add(carpet2);
+        homeListItemArrayList.add(carpet2);
+        homeListItemArrayList.add(carpet);
+        homeListItemArrayList.add(carpet2);
+        homeListItemArrayList.add(carpet);
+        homeListItemArrayList.add(carpet2);
         //======================================DUMMY DATA======================================
 
 
@@ -229,6 +236,7 @@ public class HomeFragment extends Fragment implements HomeListAdapter.OnRecycler
     @Override
     public void onItemClick(int position) {
 
+        Log.e("tesg",String.valueOf(position));
         Fragment fragment = BookingFragment.newInstance(homeListItemArrayList.get(position));
         getParentFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.translate_enter, R.anim.translate_exit)
