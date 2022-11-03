@@ -250,6 +250,7 @@ public class ChooseDifferentLocationFragment extends Fragment {
         }
     }
 
+
     public void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(mContext, FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(mContext,
                 COURSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
